@@ -1,2 +1,2 @@
 # NewsApp
-This is a nes app created using react js
+This is a news app created using react js
