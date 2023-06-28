@@ -9,11 +9,11 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Router>
+        <Router basename="/NewsApp">
           <Navbar />
 
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/NewsApp">
               <News
                 key="general"
                 pageSize={15}
