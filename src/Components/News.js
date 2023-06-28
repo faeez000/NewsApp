@@ -78,26 +78,30 @@ export default class News extends Component {
         <h2 className="text-center" style={{ marginTop: "90px" }}>
           News Top HeadLines
         </h2>
-        {this.state.loading && <Spinner />}
-        <div className="row ">
-          {!this.state.loading &&
-            this.state.articles?.map((element) => {
-              return (
-                <div className="col-md-4" key={element.url}>
-                  <NewsItems
-                    title={element.title ? element.title.slice(0, 50) : " "}
-                    description={
-                      element.description
-                        ? element.description.slice(0, 60)
-                        : " "
-                    }
-                    imageUrl={element.urlToImage}
-                    newsUrl={element.url}
-                  />
-                </div>
-              );
-            })}
-        </div>
+        {this.state.articles ? (
+          <div className="row ">
+            {!this.state.loading &&
+              this.state.articles?.map((element) => {
+                return (
+                  <div className="col-md-4" key={element.url}>
+                    <NewsItems
+                      title={element.title ? element.title.slice(0, 50) : " "}
+                      description={
+                        element.description
+                          ? element.description.slice(0, 60)
+                          : " "
+                      }
+                      imageUrl={element.urlToImage}
+                      newsUrl={element.url}
+                    />
+                  </div>
+                );
+              })}
+          </div>
+        ) : (
+          <div>{this.state.loading && <Spinner />}</div>
+        )}
+
         <div className=" container d-flex justify-content-between">
           {" "}
           <button
